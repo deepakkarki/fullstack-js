@@ -11,6 +11,7 @@ const flash = require('connect-flash');
 const expressValidator = require('express-validator');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
+require('./handlers/passport')
 const errorHandlers = require('./handlers/errorHandlers');
 
 // create our Express app

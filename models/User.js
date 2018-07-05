@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise // - don't think this is reqd. already done in app.js
+const Schema = mongoose.Schema;
 
 const md5 = require('md5')
 const validator = require('validator')
