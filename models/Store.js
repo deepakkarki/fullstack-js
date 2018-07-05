@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-//mongoose.Promise = global.Promise // - don't think this is reqd. already done in app.js
+mongoose.Promise = global.Promise // - don't think this is reqd. already done in app.js
 const slug = require('slugs')
 
 const storeSchema = new mongoose.Schema({
