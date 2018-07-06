@@ -22,7 +22,7 @@ router.post('/add/:id',
     catchErrors(storeController.resize),
     catchErrors(storeController.updateStore) )
 
-router.get('/stores/:id/edit', catchErrors(storeController.editStore) )
+router.get('/stores/:id/edit', authController.isLoggedIn, catchErrors(storeController.editStore) )
 
 // show a specific store
 router.get(`/store/:slug`, catchErrors(storeController.getStoreBySlug))
