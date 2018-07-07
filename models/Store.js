@@ -72,4 +72,19 @@ storeSchema.statics.getTagsList = function(){
   ])
 }
 
+// find reviews where the stores _id property === reviews store property
+storeSchema.virtual('reviews', {
+  ref: 'Review', // what model to link?
+  localField: '_id', // which field on the store?
+  foreignField: 'store' // which field on the review?
+});
+
+function autopopulate(next) {
+  this.populate('reviews')
+  next()
+}
+
+storeSchema.pre('find', autopopulate)
+storeSchema.pre('findOne', autopopulate)
+
 module.exports = mongoose.model('Store', storeSchema)
